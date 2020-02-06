@@ -2,8 +2,25 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
+import mongoose from 'mongoose';
 
 const app = express();
+
+//conexion a DB
+const uri = 'mongodb://localhost:27017/restaurants';
+const options = {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
+};
+mongoose.connect(uri, options).then(
+  () => {
+    console.log('Conectado a mongoDB');
+  },
+  err => {
+    console.log('Se ha producido un fallo');
+  }
+);
 
 // Middleware
 app.use(morgan('tiny'));
@@ -19,6 +36,7 @@ app.get('/', (req, res) => {
 
 // Middleware para Vue.js router modo history
 import history from 'connect-history-api-fallback';
+import { url } from 'inspector';
 app.use(history());
 app.use(express.static(path.join(__dirname, 'public')));
 
