@@ -17,7 +17,7 @@ mongoose.connect(uri, options).then(
   () => {
     console.log('Conectado a mongoDB');
   },
-  err => {
+  (err) => {
     console.log('Se ha producido un fallo');
   }
 );
@@ -34,9 +34,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 }); */
 
+app.use('/api', require('./routes/restaurant'));
+
 // Middleware para Vue.js router modo history
 import history from 'connect-history-api-fallback';
-import { url } from 'inspector';
 app.use(history());
 app.use(express.static(path.join(__dirname, 'public')));
 
