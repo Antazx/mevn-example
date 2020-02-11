@@ -7,7 +7,9 @@ import mongoose from 'mongoose';
 const app = express();
 
 //conexion a DB
-const uri = 'mongodb://localhost:27017/restaurants';
+//const uri = 'mongodb://localhost:27017/restaurants';
+const uri = 'mongodb+srv://user:user@restaurants-mt0il.mongodb.net/restaurants?retryWrites=true&w=majority';
+
 const options = {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -41,7 +43,7 @@ import history from 'connect-history-api-fallback';
 app.use(history());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('puerto', process.env.PORT || 3000);
+app.set('puerto', process.env.PORT || 3030);
 app.listen(app.get('puerto'), () => {
   console.log('Example app listening on port' + app.get('puerto'));
 });
