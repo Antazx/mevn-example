@@ -8,7 +8,8 @@ const app = express();
 
 //conexion a DB
 //const uri = 'mongodb://localhost:27017/restaurants';
-const uri = 'mongodb+srv://user:user@restaurants-mt0il.mongodb.net/restaurants?retryWrites=true&w=majority';
+const uri =
+  'mongodb+srv://user:user@restaurants-mt0il.mongodb.net/test?retryWrites=true&w=majority';
 
 const options = {
   useNewUrlParser: true,
