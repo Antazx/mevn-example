@@ -44,7 +44,7 @@ import history from 'connect-history-api-fallback';
 app.use(history());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('puerto', process.env.PORT || 3030);
+app.set('puerto', 3030);
 app.listen(app.get('puerto'), () => {
   console.log('Example app listening on port' + app.get('puerto'));
 });
